@@ -1,5 +1,5 @@
 # NodeMCU-Wixel
-Low-cost Wifi connected wixel for use with xDrip.
+Low-cost Wifi connected wixel for use with xDrip. Can be used in combinatin with a Bluetooth Wixel.
 
 ## About
 This is a low-cost do-it-yourself Wifi connected receiver for the Dexcom G4 transmitter. It is intended to be used together with [xDrip](https://github.com/StephenBlackWasAlreadyTaken/xDrip/wiki/xDrip-Beta). It is possible to use multiple NodeMCU-Wixels to cover a large area. Can be used together with a Bluetooth Wixel, if you do not want to carray around the Bluetooth Wixel at home.
@@ -11,8 +11,8 @@ Example use<br><br>
 * A [Wixel](http://www.hobbytronics.co.uk/wixel-usb-wireless-module) ~15 €
 * A [NodeMCU](http://www.ebay.co.uk/itm/NodeMCU-LUA-WIFI-Internet-Development-Board-Based-on-ESP8266-/291505733201?hash=item43df187e51:g:iikAAOSwHPlWeoBr) ~4 €
 * A micro usb charger (An old phone charger works great.)
-* A stripboard or breadboard and cables depending on how it should be assembled.
-* A box to put it in.
+* A stripboard, perfboard or breadboard and cables depending on how it should be assembled.
+* A box to put it in. (Optional)
 * A Wifi network to connect the nodes too.
 * An Android device (phone/tablet/computer)
 
@@ -21,7 +21,7 @@ Example use<br><br>
 ![Diagram](https://github.com/MrPsi/NodeMCU-Wixel/blob/master/img/diagram.png?raw=true "Diagram")<br>
 Diagram<br><br>
 
-![Diagram](https://github.com/MrPsi/NodeMCU-Wixel/blob/master/img/box1.jpg?raw=true "Diagram")<br>
+![Finished NodeMCU-Wixel in box](https://github.com/MrPsi/NodeMCU-Wixel/blob/master/img/box1.jpg?raw=true "Finished NodeMCU-Wixel in box")<br>
 Finished NodeMCU-Wixel in box.<br><br>
 
 See bottom for more images.
@@ -62,13 +62,21 @@ See bottom for more images.
   * Under "List of recievers" enter the ip-addresses and ports of all NodeMCU-Wixels you want to use. This is the ip-address that was configured when changing Wifi settings for the NodeMCU-Wixel. The port is 50005 It should be a comma separated list. Example: 192.168.0.100:50005,192.168.0.101:50005
 13. Select "Start Sensor" in xDrip and wait for two readings, then enter a dual calibration.
 
+## LED Indicator
+The LED, if present, will blink when an error occurs.
+* Fast blink (on and off four times in one second): Unable to connect to access point. Wrong password, out of range, etc.
+* Slow blink (on and off once in two seconds): Lost connection to access point, restarting after 60 seconds if not connected again.
+
 ## Images
 
-![Diagram](https://github.com/MrPsi/NodeMCU-Wixel/blob/master/img/box2.jpg?raw=true "Diagram")<br>
+![Finished NodeMCU-Wixel in box](https://github.com/MrPsi/NodeMCU-Wixel/blob/master/img/box2.jpg?raw=true "Finished NodeMCU-Wixel in box")<br>
 Finished NodeMCU-Wixel in box.<br><br>
 
-![Diagram](https://github.com/MrPsi/NodeMCU-Wixel/blob/master/img/solder.jpg?raw=true "Diagram")<br>
-Back of stripboard.<br><br>
+![Back of perfboard](https://github.com/MrPsi/NodeMCU-Wixel/blob/master/img/solder.jpg?raw=true "Back of perfboard")<br>
+Back of perfboard.<br><br>
 
-![Diagram](https://github.com/MrPsi/NodeMCU-Wixel/blob/master/img/breadboard.jpg?raw=true "Diagram")<br>
-NodeMCU-Wixel connected on breadboard.<br><br>
+![NodeMCU-Wixel connected on breadboard](https://github.com/MrPsi/NodeMCU-Wixel/blob/master/img/breadboard.jpg?raw=true "NodeMCU-Wixel connected on breadboard")<br>
+NodeMCU-Wixel connected on breadboard. No soldering needed.<br><br>
+
+![Monitoring NodeMCU-Wixels](https://github.com/MrPsi/NodeMCU-Wixel/blob/master/img/monitor.png?raw=true "Monitoring NodeMCU-Wixels")<br>
+Monitoring NodeMCU-Wixels.<br><br>
