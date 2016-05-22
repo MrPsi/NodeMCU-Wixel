@@ -80,3 +80,6 @@ NodeMCU-Wixel connected on breadboard. No soldering needed.<br><br>
 
 ![Monitoring NodeMCU-Wixels](https://github.com/MrPsi/NodeMCU-Wixel/blob/master/img/monitor.png?raw=true "Monitoring NodeMCU-Wixels")<br>
 Monitoring NodeMCU-Wixels.<br><br>
+
+## Acknowledgement
+This project relies on, and uses, the [wixel-xDrip code](https://github.com/StephenBlackWasAlreadyTaken/wixel-xDrip) and the [xDrip application](https://github.com/StephenBlackWasAlreadyTaken/xDrip/wiki/xDrip-Beta). A big **thank you** to the people behind these projects.
