@@ -1,5 +1,5 @@
 # NodeMCU-Wixel
-Low-cost Wifi connected wixel for use with xDrip. Can be used in combinatin with a Bluetooth Wixel.
+Low-cost Wifi connected Wixel for use with xDrip. Can be used in combination with a Bluetooth Wixel.
 
 ## About
 This is a low-cost do-it-yourself Wifi connected receiver for the Dexcom G4 transmitter. It is intended to be used together with [xDrip](https://github.com/StephenBlackWasAlreadyTaken/xDrip/wiki/xDrip-Beta). It is possible to use multiple NodeMCU-Wixels to cover a large area. Can be used together with a Bluetooth Wixel, if you do not want to carray around the Bluetooth Wixel at home.
