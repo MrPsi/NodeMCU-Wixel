@@ -1,32 +1,56 @@
 local modWifiMon, modName = {}, ...
 
 -- Globals
---isPendingRestart = false
+--gOnWifiConnected = nil
+--hasBeenConnected = false
 
-function modWifiMon.monitor()
+function modWifiMon.monitor(onConnected)
     package.loaded[modName] = nil
     
-    isPendingRestart = false
+    require("modLed").blink(1000)
+    hasBeenConnected = false
+    gOnWifiConnected = onConnected
+    
+    --wifi.sta.eventMonReg(wifi.STA_IDLE, 
+    --    function(previousState)
+    --        modPrintText.print("Idle")
+    --    end)
+    
     wifi.sta.eventMonReg(wifi.STA_CONNECTING, 
-        function()
-            if isPendingRestart == false then
-                isPendingRestart = true
-                require("modLed").blink(1000)
-                
-                tmr.alarm(1, 60000, tmr.ALARM_SINGLE,
-                    function()
-                        -- If timer fires, connection has not been restored
-                        node.restart()
-                    end)
-            end
+        function(previousState)
+            require("modLed").blink(1000)
+            modPrintText.print("Connecting...")
         end)
     
-    wifi.sta.eventMonReg(wifi.STA_GOTIP,
-        function()
-            -- Connected to AP
-            isPendingRestart = false
-            tmr.unregister(1)
+    wifi.sta.eventMonReg(wifi.STA_WRONGPWD, 
+        function(previousState)
+            require("modLed").blink(125)
+            modPrintText.print("Wrong password")
+        end)
+    
+    wifi.sta.eventMonReg(wifi.STA_APNOTFOUND, 
+        function(previousState)
+            require("modLed").blink(500)
+            modPrintText.print("Access point not found")
+        end)
+    
+    wifi.sta.eventMonReg(wifi.STA_FAIL, 
+        function(previousState)
+            require("modLed").blink(125)
+            modPrintText.print("Connection failure")
+        end)
+    
+    wifi.sta.eventMonReg(wifi.STA_GOTIP, 
+        function(previousState)
+            modPrintText.print("Connected")
+            
             require("modLed").stop()
+            
+            if hasBeenConnected == false then
+                hasBeenConnected = true
+                gOnWifiConnected()
+                gOnWifiConnected = nil
+            end
         end)
     
     wifi.sta.eventMonStart(1000)
