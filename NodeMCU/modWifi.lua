@@ -7,47 +7,18 @@ local cfg = {
 local wifiSsid = "SSID"
 local wifiPassword = "PASSWORD"
 
--- Globals
---gOnWifiConnected = nil
---gOnWifiFail = nil
-
-function modWifi.connectToAp(onConnected, onFail)
+function modWifi.connectToAp(onConnected)
     package.loaded[modName] = nil
     
-    gOnWifiConnected = onConnected
-    gOnWifiFail = onFail
     wifi.setmode(wifi.STATION)
-    -- Use 802.11b for maximum range
-    wifi.setphymode(wifi.PHYMODE_B)
+    -- Use 802.11n (Can also be set to PHYMODE_B or PHYMODE_G)
+    wifi.setphymode(wifi.PHYMODE_N)
     wifi.sleeptype(wifi.NONE_SLEEP)
     wifi.sta.setip(cfg)
     wifi.sta.config(wifiSsid, wifiPassword)
     wifi.sta.connect()
     
-    tmr.alarm(1, 1000, tmr.ALARM_AUTO, 
-        function()
-            local status = wifi.sta.status()
-            if status == wifi.STA_CONNECTING then
-                -- Connecting
-                modPrintText.print("Connecting...")
-                return
-            end
-            
-            tmr.unregister(1)
-            
-            if status == wifi.STA_GOTIP then
-                -- Connected
-                modPrintText.print("Wifi connected")
-                gOnWifiConnected()
-            else
-                -- Connection failed
-                modPrintText.print("Wifi connection failed " .. status)
-                gOnWifiFail()
-            end
-            
-            gOnWifiConnected = nil
-            gOnWifiFail = nil
-        end)
+    require("modWifiMon").monitor(onConnected)
 end
 
 return modWifi

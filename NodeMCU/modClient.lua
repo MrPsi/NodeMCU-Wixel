@@ -1,9 +1,9 @@
 local modClient, modName = {}, ...
 
-function modClient.dataReceived(socket, json)
+function modClient.dataReceived(socket, receivedData)
     package.loaded[modName] = nil
     
-    local isDecodeSuccess, data = pcall(cjson.decode, json)
+    local isDecodeSuccess, data = pcall(cjson.decode, receivedData)
     if isDecodeSuccess == false then
         modPrintText.print("Error decoding received data")
         socket:close()
@@ -12,12 +12,12 @@ function modClient.dataReceived(socket, json)
     
     local jsonList = {}
     if data["includeInfo"] == true then
-        local json = require("modInfo").getInfo()
-        if json == nil then
+        local infoJson = require("modInfo").getInfo()
+        if infoJson == nil then
             socket:close()
             return
         end
-        jsonList[#jsonList + 1] = json
+        jsonList[#jsonList + 1] = infoJson
         jsonList[#jsonList + 1] = "\n"
     end
     
@@ -41,12 +41,12 @@ function modClient.dataReceived(socket, json)
     local converter = require("modConverter")
     converter.init()
     for i = 1, numberToSend do
-        local json = converter.convert(list.getFromEnd(i))
-        if json == nil then
+        local listItemJson = converter.convert(list.getFromEnd(i))
+        if listItemJson == nil then
             socket:close()
             return
         end
-        jsonList[#jsonList + 1] = json
+        jsonList[#jsonList + 1] = listItemJson
         jsonList[#jsonList + 1] = "\n"
     end
     converter = nil

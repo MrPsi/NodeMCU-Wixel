@@ -63,6 +63,15 @@ See bottom for more images.
 13. Select "Start Sensor" in xDrip and wait for two readings, then enter a dual calibration.
 
 ## LED Indicator
+
+### Current LED behavior
+The LED will blink in the following cases.
+* Connecting or reconnecting - Slow blink (on 1 second, off 1 second, and so on).
+* Wrong password or other failure - Fast blink (On and off 4 times in one second).
+* Access point not found - Medium blink (on and off once each second).
+* Connected to access point - No blinking.
+
+### LED behavior prior to 2017-01-04
 The LED, if present, will blink when an error occurs.
 * Fast blink (on and off four times in one second): Unable to connect to access point. Wrong password, out of range, etc.
 * Slow blink (on and off once in two seconds): Lost connection to access point, restarting after 60 seconds if not connected again.
