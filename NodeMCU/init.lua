@@ -10,6 +10,7 @@
 --modPrintText = nil
 
 require("modCompile").compileFiles()
+require("modPins").init()
 modPrintText = require("modPrintText")
 modPrintText.init()
 

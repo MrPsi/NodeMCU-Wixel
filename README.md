@@ -10,8 +10,10 @@ Example use<br><br>
 # What you need
 * A [Wixel](http://www.hobbytronics.co.uk/wixel-usb-wireless-module) ~15 €
 * A [NodeMCU](http://www.ebay.co.uk/itm/NodeMCU-LUA-WIFI-Internet-Development-Board-Based-on-ESP8266-/291505733201?hash=item43df187e51:g:iikAAOSwHPlWeoBr) ~4 €
+* A 5kΩ resistor.
+* A LED and 220Ω resistor. (Optional)
+* Cables and a stripboard, perfboard or breadboard depending on how it should be assembled.
 * A micro usb charger (An old phone charger works great.)
-* A stripboard, perfboard or breadboard and cables depending on how it should be assembled.
 * A box to put it in. (Optional)
 * A Wifi network to connect the nodes too.
 * An Android device (phone/tablet/computer)
