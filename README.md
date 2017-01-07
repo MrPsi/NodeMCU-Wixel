@@ -32,12 +32,13 @@ See bottom for more images.
 
 ### Windows
 
-1. Assemble the NodeMCU-Wixel by soldering or using a breadboard.
-2. Download the [NodeMCU-Wixel repository](https://github.com/MrPsi/NodeMCU-Wixel) and extract the files.
-3. Download the [wixel-xDrip repository](https://github.com/StephenBlackWasAlreadyTaken/wixel-xDrip) and extract the files.
-4. Modify transmitter id in Wixel code from the NodeMCU-Wixel repository (NodeMCU-Wixel/Wixel/dexdrip.c) and set it to your transmitter id. Then save.
-5. Copy dexdrip.c from the NodeMCU-Wixel repository (NodeMCU-Wixel/Wixel/dexdrip.c) to the wixel-xDrip repository (wixel-xDrip/apps/dexdrip/dexdrip.c).
-6. Build the Wixel code in the wixel-xDrip repository and write it to the Wixel by following the instructions [here](https://github.com/StephenBlackWasAlreadyTaken/wixel-xDrip).
+1. Download the [NodeMCU-Wixel repository](https://github.com/MrPsi/NodeMCU-Wixel) and extract the files.
+2. Download the [wixel-xDrip repository](https://github.com/StephenBlackWasAlreadyTaken/wixel-xDrip) and extract the files.
+3. Modify transmitter id in Wixel code from the NodeMCU-Wixel repository (NodeMCU-Wixel/Wixel/dexdrip.c) and set it to your transmitter id. Then save.
+4. Copy dexdrip.c from the NodeMCU-Wixel repository (NodeMCU-Wixel/Wixel/dexdrip.c) to the wixel-xDrip repository (wixel-xDrip/apps/dexdrip/dexdrip.c).
+5. Build the Wixel code in the wixel-xDrip repository and write it to the Wixel by following the instructions [here](https://github.com/StephenBlackWasAlreadyTaken/wixel-xDrip).
+**If the NodeMCU-Wixel is already assembled you need to either disconnect the cabel to the reset-pin on the Wixel or connect power to the NodeMCU (running the latest code) during programming of the Wixel. Otherwise the Wixel will be in reset mode and cannot be programmed.**
+6. Assemble the NodeMCU-Wixel by soldering or using a breadboard.
 7. Flash the NodeMCU with the firmware from the NodeMCU-Wixel repository (NodeMCU-Wixel/Firmware) using the [NodeMCU Firmware Programmer](https://github.com/nodemcu/nodemcu-flasher).
   * Connect the NodeMCU to the computer.
   * Open the firmware programmer.
